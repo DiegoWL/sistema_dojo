@@ -1,0 +1,195 @@
+.bg-primary {
+  background-color: #FC0204 !important;
+}
+.text-primary {
+  color: #FC0204 !important;
+}
+a {
+  color: #FC0204;
+}
+a:hover {
+  color: #FC0204;
+}
+.btn-primary {
+  background-color: #FC0204;
+  border-color: transparent !important;
+}
+.btn-primary:focus,
+.btn-primary:focus:active,
+.btn-primary:active,
+.btn-primary:hover {
+  background-color: #FC0204 !important;
+}
+.btn-primary.disabled, .btn-primary:disabled {
+  background-color: #FC0204;
+  border-color: #FC0204;
+}
+.btn-outline-primary {
+  color: #FC0204;
+  background-color: transparent;
+  background-image: none;
+  border-color: #FC0204;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #FC0204;
+  border-color: #FC0204;
+}
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+  color: #FC0204;
+  background-color: transparent;
+}
+.btn-outline-primary:not([disabled]):not(.disabled):active, .btn-outline-primary:not([disabled]):not(.disabled).active,
+.show > .btn-outline-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #FC0204;
+  border-color: #FC0204;
+}
+.btn-link {
+  font-weight: 400;
+  color: #FC0204;
+  background-color: transparent;
+}
+.btn-link:hover {
+  color: #FC0204;
+}
+.dropdown-item.active, .dropdown-item:active {
+  color: #fff;
+  background-color: #FC0204;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  background-color: #FC0204;
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #FC0204;
+}
+.custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
+  background-color: #FC0204;
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #FC0204;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #FC0204;
+}
+.page-link {
+  color: #FC0204;
+  background-color: #fff;
+  border: 1px solid #ededed;
+}
+.page-item.active .page-link {
+  color: #fff;
+  background-color: #FC0204;
+  border-color: #FC0204;
+}
+.page-link:focus, .page-link:hover {
+  color: #FC0204;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #FC0204;
+}
+.progress-bar {
+  color: #fff;
+  background-color: #FC0204;
+}
+.list-group-item.active {
+  color: #fff;
+  background-color: #FC0204;
+  border-color: #FC0204;
+}
+.bg-primary {
+  background-color: #FC0204 !important;
+}
+.border-primary {
+  border-color: #FC0204 !important;
+}
+.text-primary {
+  color: #FC0204 !important;
+}
+
+.navbar.active {
+  background-color: #FC0204;
+}
+.navbar-bg {
+  background-color: #FC0204;
+}
+.form-control:focus {
+  border-color: #FC0204;
+}
+.main-sidebar .sidebar-menu li.active a {
+  background-color: #f9f9f9;
+  color: #FC0204;
+}
+.main-sidebar .sidebar-menu li ul.menu-dropdown li a:hover {
+  color: #FC0204;
+}
+
+.main-sidebar .sidebar-menu li ul.menu-dropdown li.active a {
+  color: #FC0204;
+}
+.alert.alert-primary {
+  background-color: #FC0204;
+}
+.card.card-primary {
+  border-top: 2px solid #FC0204;
+}
+.fc button.fc-state-active {
+  background-color: #FC0204;
+  color: #fff;
+}
+.jqvmap-circle {
+  background-color: #FC0204;
+  border: 1px solid #000;
+}
+.weather ul li {
+  border: 2px solid #FC0204;
+  color: #FC0204;
+}
+.card-chat .chat-content .chat-item.chat-right .chat-details .chat-text {
+  background-color: #FC0204;
+  color: #fff;
+}
+.nav-tabs .nav-item .nav-link {
+  color: #FC0204;
+}
+.nav-pills .nav-item .nav-link {
+  color: #FC0204;
+}
+.swal-button.swal-button--confirm {
+  background-color: #FC0204;
+}
+.page-item .page-link {
+  color: #FC0204;
+}
+.page-item.active .page-link {
+  background-color: #FC0204;
+  border-color: #FC0204;
+}
+.btn-group .btn.active {
+  background-color: #FC0204;
+  color: #fff;
+}
+.media .media-right {
+  color: #FC0204;
+}
+.selectric-items li.selected,
+.selectric-items li.highlighted {
+  background-color: #FC0204;
+  color: #fff;
+}
+.dropzone {
+  border: 2px dashed #FC0204;
+}
+.accordion .accordion-header[aria-expanded="true"] {
+  background-color: #FC0204;
+  color: #fff;
+}
+.bootstrap-tagsinput .tag {
+  background-color: #FC0204;
+}

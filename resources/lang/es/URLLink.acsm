@@ -1,0 +1,29 @@
+<fulfillmentToken fulfillmentType="buy" auth="user" xmlns="http://ns.adobe.com/adept">
+  <distributor>urn:uuid:cb299726-cb98-4e2a-b25f-a4dae51f32a3</distributor>
+  <operatorURL>http://acs.aglutinaeditores.com/fulfillment</operatorURL>
+  <transaction>goldenbook_42168_0</transaction>
+  <purchase>2018-01-22T13:20:19+01:00</purchase>
+  <expiration>2028-01-20T13:20:19+01:00</expiration>
+  <resourceItemInfo>
+    <resource>urn:uuid:b3cff43e-69f5-4ea9-a983-6cc3f2d8a86d</resource>
+    <resourceItem>0</resourceItem>
+    <metadata>
+      <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Curso de kárate para niños</dc:title>
+      <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Philippe Sauvage</dc:creator>
+      <dc:publisher xmlns:dc="http://purl.org/dc/elements/1.1/">De Vecchi</dc:publisher>
+      <dc:identifier xmlns:dc="http://purl.org/dc/elements/1.1/">2905f8e5-0417-45f7-bef9-b1661382c4c2</dc:identifier>
+      <dc:format xmlns:dc="http://purl.org/dc/elements/1.1/">application/epub+zip</dc:format>
+      <dc:language xmlns:dc="http://purl.org/dc/elements/1.1/">es</dc:language>
+    </metadata>
+    <licenseToken>
+      <resource>urn:uuid:b3cff43e-69f5-4ea9-a983-6cc3f2d8a86d</resource>
+      <permissions>
+        <display/>
+        <excerpt/>
+        <print/>
+        <play/>
+      </permissions>
+    </licenseToken>
+  </resourceItemInfo>
+  <hmac>x+DTpJ+lg6vcQ80WOXzJ11eoGl4=</hmac>
+</fulfillmentToken>

@@ -1,0 +1,18 @@
+{
+  "name": "sistema_dojo",
+  "description": "sistema de administracion de alumnos",
+  "main": "",
+  "authors": [
+    "Diego Wilson <dwilsonlow@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap-datepicker": "^1.8.0",
+    "popper.js": "^1.14.1",
+    "jquery.nicescroll": "nicescroll#^3.7.6",
+    "Ionicons": "ionicons#^2.0.1"
+  }
+}
