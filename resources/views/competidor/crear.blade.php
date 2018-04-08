@@ -27,13 +27,13 @@
             <div id="kata" class="form-group">
               <label for="exampleSelect2">Categoria Kata</label>
               <select class="custom-select" name="cat_kata" id="select_kata">
-                <option value="[object Object]">Seleccione Categoria</option>
+                <option>Seleccione Categoria</option>
               </select>
             </div>
             <fieldset class="form-group">
               <label for="exampleSelect2">Categoria Kumite</label>
               <select  class="custom-select" name="cat_kumite" id="select_kumite">
-                <option value="[object Object]">Seleccione Categoria</option>
+                <option>Seleccione Categoria</option>
               </select>
             </fieldset>
             <button type="submit" class="btn btn-primary" id="btn_competidor">Registrar</button>
