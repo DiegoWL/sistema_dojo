@@ -26,34 +26,16 @@ class CreateExamenTable extends Migration
             $table->increments('id')->unsigned();
             $table->dateTime('fecha')->nullable();
             $table->string('observacion', 100)->nullable();
-            $table->integer('examinador_id');
-            $table->integer('alumno_id');
-            $table->integer('grado_id');
+            $table->unsignedInteger('alumno_id');
+            $table->unsignedInteger('examinador_id');
+            $table->integer('grado_id')->unsigned();
 
-            $table->index(["alumno_id"], 'fk_examen_alumno1_idx');
+        });
 
-            $table->index(["grado_id"], 'fk_examen_grado1_idx');
-
-            $table->index(["examinador_id"], 'fk_Examen_Examinador1_idx');
-
-
-            $table->foreign('examinador_id', 'fk_Examen_Examinador1_idx')
-                ->references('id')->on('examinador')
-                ->onDelete('no action')
-                ->onUpdate('no action')
-                ->unsigned();
-
-            $table->foreign('alumno_id', 'fk_examen_alumno1_idx')
-                ->references('id')->on('alumno')
-                ->onDelete('no action')
-                ->onUpdate('no action')
-                ->unsigned();
-
-            $table->foreign('grado_id', 'fk_examen_grado1_idx')
-                ->references('id')->on('grado')
-                ->onDelete('no action')
-                ->onUpdate('no action')
-                ->unsigned();
+        Schema::table($this->set_schema_table, function($table) {
+          $table->foreign('alumno_id')->references('id')->on('alumno')->onDelete('cascade')->onUpdate('cascade');
+          $table->foreign('examinador_id')->references('id')->on('examinador')->onDelete('cascade')->onUpdate('cascade');
+          $table->foreign('grado_id')->references('id')->on('grado')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -64,6 +46,11 @@ class CreateExamenTable extends Migration
      */
      public function down()
      {
+       Schema::table($this->set_schema_table, function(Blueprint $table) {
+               $table->dropForeign('alumno_id');
+               $table->dropForeign('examinador_id');
+               $table->dropForeign('grado_id');
+       });
        Schema::dropIfExists($this->set_schema_table);
      }
 }

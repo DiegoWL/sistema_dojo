@@ -27,14 +27,16 @@ class CreateAlumnoTable extends Migration
             $table->string('rut', 100)->nullable();
             $table->string('nombre', 100)->nullable();
             $table->string('apellido', 100)->nullable();
+            $table->string('sexo', 100)->nullable();
             $table->dateTime('fecha_nac')->nullable();
             $table->string('direccion', 100)->nullable();
             $table->string('actividad', 100)->nullable();
             $table->string('telefono', 100)->nullable();
             $table->string('fono_emerg', 100)->nullable();
+            $table->string('email', 100)->nullable();
             $table->string('apoderado', 100)->nullable();
             $table->dateTime('fecha_ingreso')->nullable();
-            $table->string('observacion', 100)->nullable();
+            $table->text('observacion')->nullable();
         });
     }
 

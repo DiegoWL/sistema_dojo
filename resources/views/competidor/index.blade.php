@@ -2,13 +2,13 @@
 @section('content')
 
   <h1 class="section-header">
-    <div>Ver Competidores</div>
+    <div>Lista competidores</div>
   </h1>
 <div class="container mt-5">
   <div class="row">
     <div class="card card-primary">
         <div class="card-body">
-          <table class="table">
+          <table class="table" id="tabla_competidor">
             <thead>
               <tr>
                 <th>Nombre</th>
@@ -25,12 +25,12 @@
                   <td>{{$compet->alumno_nombre}} {{ $compet->alumno_apellido}}</td>
                   <td>{{$compet->peso}} Kg</td>
                   <td>{{\Carbon\Carbon::parse($compet->fecha_nac)->age}} años</td>
-                  <td>{{$compet->categoria_kumite}}</td>
-                  <td>{{$compet->categoria_kata}}</td>
+                  <td>{{$compet->cat_kumite}}</td>
+                  <td>{{$compet->cat_kata}}</td>
                   <td>
                     <p class="text-center">
-                        <a href="#"  class="edit_competidor" style="color:#17A2B8"> <span class="far fa-edit"></span></a>
-                        <a href="#"  class="borrar_competidor"><span class="far fa-trash-alt"></span></a>
+                        <a href="#"  class="edit_competidor" data-id="{{$compet->id}}" style="color:#17A2B8"> <span class="far fa-edit"></span></a>
+                        <a href="#"  class="borrar_competidor" data-id="{{$compet->id}}"><span class="far fa-trash-alt"></span></a>
                     </p>
                   </td>
                 </tr>

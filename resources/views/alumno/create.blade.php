@@ -96,8 +96,10 @@
          $(document).ready(function() {
            $('.sandbox-container input').datepicker({
              format: "dd/mm/yyyy",
-             todayBtn: true,
-             language: "es"
+             todayBtn: "linked",
+             todayHighlight: true,
+             language: "es",
+             autoclose: true
            });
 
              $("input#rut").rut({

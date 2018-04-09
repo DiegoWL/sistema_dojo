@@ -22,20 +22,15 @@ class CreateClaseTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->string('nombre_clase', 45)->nullable();
+          $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->string('nombre', 45)->nullable();
             $table->string('horario', 45)->nullable();
-            $table->integer('alumno_id');
+            $table->integer('alumno_id')->unsigned();
+        });
 
-            $table->index(["alumno_id"], 'fk_clase_alumno1_idx');
-
-
-            $table->foreign('alumno_id', 'fk_clase_alumno1_idx')
-                ->references('id')->on('alumno')
-                ->onDelete('no action')
-                ->onUpdate('no action')
-                ->unsigned();
+        Schema::table($this->set_schema_table, function($table) {
+          $table->foreign('alumno_id')->references('id')->on('alumno')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -46,6 +41,9 @@ class CreateClaseTable extends Migration
      */
      public function down()
      {
+       Schema::table($this->set_schema_table, function(Blueprint $table) {
+            $table->dropForeign(['alumno_id']);
+       });
        Schema::dropIfExists($this->set_schema_table);
      }
 }

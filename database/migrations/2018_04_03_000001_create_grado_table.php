@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateExaminadorTable extends Migration
+class CreateGradoTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'examinador';
+    public $set_schema_table = 'grado';
 
     /**
      * Run the migrations.
-     * @table examinador
+     * @table grado
      *
      * @return void
      */
@@ -22,11 +22,10 @@ class CreateExaminadorTable extends Migration
     {
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
-            $table->engine = 'InnoDB';
+          $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('nombre', 100)->nullable();
-            $table->string('dojo', 100)->nullable();
-            $table->string('firma', 100)->nullable();
+            $table->string('color', 45)->nullable();
+            $table->string('numero', 45)->nullable();
         });
     }
 

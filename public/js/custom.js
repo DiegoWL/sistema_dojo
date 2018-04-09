@@ -134,34 +134,98 @@ $('#select_alumno').change(function(event) {
 });
 
 $('#btn_competidor').click(function(event) {
-event.preventDefault();
-  console.log('hola');
-  var id =  $("#select_alumno option:selected").attr('data-id');
-  var sexo = $(this).val();
-  var form_competidor = $('#form_competidor').serializeArray()
-  console.log(form_competidor);
+    event.preventDefault();
+      console.log('hola');
+      var id =  $("#select_alumno option:selected").attr('data-id');
+      var sexo = $(this).val();
+      var form_competidor = $('#form_competidor').serializeArray()
+      console.log(form_competidor);
 
-$.ajax({
-  url: '/admin/competidor',
-  type: 'POST',
-  data: form_competidor
-})
-.done(function(data) {
-  alert(data.msg)
-})
-.fail(function() {
-  console.log("error");
-})
-.always(function() {
-  console.log("complete");
+    $.ajax({
+      url: '/admin/competidor',
+      type: 'POST',
+      data: form_competidor
+    })
+    .done(function(data) {
+      alert(data.msg)
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
 });
 
+$('body').on('click', '.edit_competidor', function(event) {
+  event.preventDefault();
+  var id = $(this).data('id');
+  console.log(id);
+  $.ajax({
+    url: 'competidor/'+id+'/edit',
+    type: 'GET'
+  })
+  .done(function(data) {
+    $('#modal-content').empty();
+    $('#modal-content').append(data.view);
+    $('#modal').modal();
+  })
+  .fail(function() {
+    console.log("error");
+  })
+  .always(function() {
+    console.log("complete");
+  });
 
+  /* Act on the event */
 });
 
+$('#modal').on('shown.bs.modal', function (e) {
+  $('#btn-act-compt').click(function(event) {
+      let id =  $(this).data('id');
+      formu = $('#form_competidor_act').serializeArray();
+      $.ajax({
+        url: 'competidor/'+id,
+        type: 'PUT',
+        data: formu
+      })
+      .done(function(data) {
+          alert(data.msg);
+          $("#tabla_competidor").load(" #tabla_competidor");
+          $('#modal').modal('hide');
+      })
+      .fail(function(data) {
+        console.log(data);
+      })
+      .always(function() {
+        console.log("complete");
+      });
+    });
+});
+
+$('body').on('click', '.borrar_competidor', function(event) {
+    var id = $(this).data('id');
+    //console.log(id);
+    $.ajax({
+      url: 'competidor/'+id,
+      type: 'DELETE'
+    })
+    .done(function(data) {
+        alert(data);
+        $("#tabla_competidor").load(" #tabla_competidor");
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+});
 
 
 /** FIN CRUD COMPETIDOR **/
 
+/** INICIO CRUD PAGOS **/
+/** FIN CRUD PAGOS **/
 
 });

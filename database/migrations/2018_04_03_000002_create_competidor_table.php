@@ -25,18 +25,13 @@ class CreateCompetidorTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->integer('peso')->nullable();
-            $table->string('categoria', 45)->nullable();
-            $table->string('modalidad', 45)->nullable();
-            $table->integer('alumno_id');
+            $table->string('cat_kata', 45)->nullable();
+            $table->string('cat_kumite', 45)->nullable();
+            $table->integer('alumno_id')->unsigned();
+        });
 
-            $table->index(["alumno_id"], 'fk_competidor_alumno1_idx');
-
-
-            $table->foreign('alumno_id', 'fk_competidor_alumno1_idx')
-                ->references('id')->on('alumno')
-                ->onDelete('no action')
-                ->onUpdate('no action')
-                ->unsigned();
+        Schema::table($this->set_schema_table, function($table) {
+          $table->foreign('alumno_id')->references('id')->on('alumno')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -47,6 +42,9 @@ class CreateCompetidorTable extends Migration
      */
      public function down()
      {
+       Schema::table($this->set_schema_table, function(Blueprint $table) {
+         $table->dropForeign(['alumno_id']);
+       });
        Schema::dropIfExists($this->set_schema_table);
      }
 }

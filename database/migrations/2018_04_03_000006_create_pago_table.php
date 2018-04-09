@@ -26,19 +26,15 @@ class CreatePagoTable extends Migration
             $table->increments('id')->unsigned();
             $table->dateTime('fecha')->nullable();
             $table->integer('estado')->nullable();
-            $table->string('concepto', 45)->nullable();
-            $table->string('comentario', 45)->nullable();
-            $table->integer('alumno_id');
-
-            $table->index(["alumno_id"], 'fk_pago_alumno1_idx')->unsigned();
-
-
-            $table->foreign('alumno_id', 'fk_pago_alumno1_idx')
-                ->references('id')->on('alumno')
-                ->onDelete('no action')
-                ->onUpdate('no action')
-                ->unsigned();
+            $table->string('concepto', 100)->nullable();
+            $table->text('comentario', 100)->nullable();
+            $table->integer('alumno_id')->unsigned();
         });
+        Schema::table($this->set_schema_table, function($table) {
+          $table->foreign('alumno_id')->references('id')->on('alumno')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+
     }
 
     /**
@@ -48,6 +44,9 @@ class CreatePagoTable extends Migration
      */
      public function down()
      {
+       Schema::table($this->set_schema_table, function(Blueprint $table) {
+          $table->dropForeign(['alumno_id']);
+       });
        Schema::dropIfExists($this->set_schema_table);
      }
 }

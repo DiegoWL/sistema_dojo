@@ -44,8 +44,8 @@ class CompetidorController extends Controller
     {
       $competidor = new Competidor;
       $competidor->alumno_id = $request->get('id_alumno');
-      $competidor->categoria_kata = $request->get('cat_kata');
-      $competidor->categoria_kumite = $request->get('cat_kumite');
+      $competidor->cat_kata = $request->get('cat_kata');
+      $competidor->cat_kumite = $request->get('cat_kumite');
       $competidor->peso = $request->get('peso');
       $competidor->save();
       return response()->json(['msg' => 'Competidor Registrado'], 200);
@@ -70,7 +70,15 @@ class CompetidorController extends Controller
      */
     public function edit($id)
     {
-        //
+      $competidor = Competidor::select('alumno.nombre as nombre' , 'alumno.apellido as apellido' , 'alumno.id as id' , 'competidor.id as compet_id' , 'alumno.sexo as sexo',
+                                  'competidor.peso as peso')
+                                ->join('alumno', 'alumno.id', '=', 'competidor.alumno_id')
+                                ->where('competidor.id' ,'=' , $id)
+                                ->first();
+
+       return response()->json([
+           'view' => view('competidor.editar',['competidor' => $competidor])->render(),
+       ]);
     }
 
     /**
@@ -82,7 +90,13 @@ class CompetidorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+              Competidor::where('id', $id)
+                    ->update([
+                      'peso' => $request->get('peso'),
+                      'cat_kumite' => $request->get('cat_kumite'),
+                      'cat_kata' => $request->get('cat_kata')
+                  ]);
+                  return response()->json(['msg' => 'Datos Actualizados'], 200);
     }
 
     /**
@@ -93,6 +107,8 @@ class CompetidorController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $alumnos = Competidor::where('id',$id)->delete();
+      $mensaje = "Competidor Borrado";
+      return json_encode($mensaje);
     }
 }
