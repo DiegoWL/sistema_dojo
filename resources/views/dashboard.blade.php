@@ -236,7 +236,7 @@
                           </div>
                         </td>
                         <td>
-                          <a href="#"><img src="../dist/img/avatar/avatar-1.jpeg" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                          <a href="#"><img src="" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                         </td>
                         <td>
                           <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>
@@ -253,7 +253,7 @@
                           </div>
                         </td>
                         <td>
-                          <a href="#"><img src="../dist/img/avatar/avatar-1.jpeg" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
+                          <a href="#"><img src="" alt="avatar" width="30" class="rounded-circle mr-1"> Bagus Dwi Cahya</a>
                         </td>
                         <td>
                           <a class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="Edit"><i class="ion ion-edit"></i></a>

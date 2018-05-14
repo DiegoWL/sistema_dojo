@@ -37,6 +37,7 @@ class CreateAlumnoTable extends Migration
             $table->string('apoderado', 100)->nullable();
             $table->dateTime('fecha_ingreso')->nullable();
             $table->text('observacion')->nullable();
+            $table->integer('clase_id')->unsigned();
         });
     }
 

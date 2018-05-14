@@ -1,6 +1,5 @@
 @extends('index')
 @section('content')
-
   <h1 class="section-header">
     <div>Ver Alumnos</div>
   </h1>
@@ -9,8 +8,8 @@
       <div class="col-md-12">
         <div class="card card-primary">
           <div class="card-body">
-            <div class="table-responsive"  id="tabla_alumnos">
-              <table class="table table-condensed">
+            <div class="table-responsive" id="tabla_alumnos" >
+              <table id="t_alumnos" class="table table-condensed" >
                 <thead>
                   <tr>
                     <th>Rut</th>
@@ -50,8 +49,6 @@
                       </td>
                     </tr>
                   @endforeach
-
-
                 </tbody>
               </table>
             </div>
@@ -60,4 +57,23 @@
       </div>
     </div>
   </div>
+@push('scripts')
+<script>
+   $(document).ready(function() {
+    $('#t_alumnos').DataTable({
+      "info": false,
+       "language": {
+            "lengthMenu": "Mostrando _MENU_ registros por paginas",
+            "zeroRecords": "No se encontraron registros",
+            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+            "infoEmpty": "Sin registros disponibles",
+            "infoFiltered": "(filtrado de _MAX_ registros totales)",
+            "Search": "Buscar"
+        }
+    });
+
+
+   });
+</script>
+@endpush
 @stop

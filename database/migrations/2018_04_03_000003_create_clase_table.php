@@ -26,12 +26,10 @@ class CreateClaseTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('nombre', 45)->nullable();
             $table->string('horario', 45)->nullable();
-            $table->integer('alumno_id')->unsigned();
+           
         });
 
-        Schema::table($this->set_schema_table, function($table) {
-          $table->foreign('alumno_id')->references('id')->on('alumno')->onDelete('cascade')->onUpdate('cascade');
-        });
+ 
     }
 
     /**
@@ -41,9 +39,6 @@ class CreateClaseTable extends Migration
      */
      public function down()
      {
-       Schema::table($this->set_schema_table, function(Blueprint $table) {
-            $table->dropForeign(['alumno_id']);
-       });
        Schema::dropIfExists($this->set_schema_table);
      }
 }

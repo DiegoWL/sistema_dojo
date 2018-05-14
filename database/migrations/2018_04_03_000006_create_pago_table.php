@@ -25,10 +25,10 @@ class CreatePagoTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->dateTime('fecha')->nullable();
-            $table->integer('estado')->nullable();
-            $table->string('concepto', 100)->nullable();
+            $table->enum('estado', ['Pagado','No Pagado']);
             $table->text('comentario', 100)->nullable();
             $table->integer('alumno_id')->unsigned();
+            $table->integer('evento_id')->unsigned();
         });
         Schema::table($this->set_schema_table, function($table) {
           $table->foreign('alumno_id')->references('id')->on('alumno')->onDelete('cascade')->onUpdate('cascade');

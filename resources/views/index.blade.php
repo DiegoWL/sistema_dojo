@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
+{{\Jenssegers\Date\Date::setLocale('es')}}
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
   @stack('styles')
   {{-- <link rel="stylesheet" href="/dist/modules/summernote/summernote-lite.css">
   <link rel="stylesheet" href="/dist/modules/flag-icon-css/css/flag-icon.min.css"> --}}
-
+  <link href="/components/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
   <!-- <link rel="stylesheet" href="../dist/css/demo.css"> -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/red.css">
@@ -35,12 +35,13 @@
     <div class="main-content">
       <div id="app">
         <section class="section">
-                 @yield('content')
                  @if (session()->has('flash'))
-                   <div class="alert alert-success" role="alert">
-                       {{session('flash')}}
-                   </div>
+                      <div class="alert alert-success" role="alert">
+                          {{session('flash')}}
+                      </div>
                  @endif
+                 @yield('content')
+              
         </section>
       </div>
 
@@ -62,7 +63,9 @@
      <script type="text/javascript" src="/components/popper.js/dist/umd/popper.min.js"></script>
      <script type="text/javascript" src="/components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
      <script src="/components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="/components/datatables.net/js/jquery.dataTables.js"></script>
      @stack('scripts')
+     
      <script type="text/javascript" src="/js/scripts.js"></script>
      <script src="/js/sa-functions.js"></script>
      <script type="text/javascript" src="/js/custom.js"></script>

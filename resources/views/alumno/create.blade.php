@@ -27,8 +27,7 @@
               </div>
               <div class="form-group {{ $errors->has('sexo') ? 'has-error' : ''}}" >
                 <label for="exampleFormControlInput3">Sexo</label>
-                <select class="custom-select" name="sexo">
-                  <option selected></option>
+                <select class="custom-select" name="sexo">                
                   <option value="F">Femenino</option>
                   <option value="M">Masculino</option>
                 </select>
@@ -74,9 +73,18 @@
                 <input type="text" name="fecha_ingreso" id="fecha_ingreso" class="form-control">
                    {!! $errors->first('fecha_ingreso' ,'<span class="text-danger">:message</span>' ) !!}
               </div>
+              <div class="form-group {{ $errors->has('clases') ? 'has-error' : ''}}" >
+                <select class="custom-select"  name="clase" id="clases">
+                 @foreach ($clases as $c)
+                  <option value="{{$c->id}}">{{ $c->nombre }} {{ $c->horario }}</option>
+                  @endforeach
+                </select>
+                 {!! $errors->first('clases' ,'<span class="text-danger">:message</span>' ) !!}
+              </div>
               <div class="form-group {{ $errors->has('observacion') ? 'has-error' : ''}}" >
                 <label for="exampleFormControlTextarea1">Observación  <small>(Indicar si es que tiene alguna enfermerdad, lesión o situacion especial)</small> </label>
                 <textarea class="form-control" name="observacion" id="observacion" rows="3"></textarea>
+                 {!! $errors->first('observacion' ,'<span class="text-danger">:message</span>' ) !!}
               </div>
               <button type="submit" class="btn btn-primary" name="button" id="guardar_almn">Guardar</button>
             </form>

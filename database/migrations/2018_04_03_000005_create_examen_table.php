@@ -26,8 +26,8 @@ class CreateExamenTable extends Migration
             $table->increments('id')->unsigned();
             $table->dateTime('fecha')->nullable();
             $table->string('observacion', 100)->nullable();
-            $table->unsignedInteger('alumno_id');
-            $table->unsignedInteger('examinador_id');
+            $table->unsignedInteger('alumno_id')->unsigned();
+            $table->unsignedInteger('examinador_id')->unsigned();
             $table->integer('grado_id')->unsigned();
 
         });
@@ -47,9 +47,9 @@ class CreateExamenTable extends Migration
      public function down()
      {
        Schema::table($this->set_schema_table, function(Blueprint $table) {
-               $table->dropForeign('alumno_id');
-               $table->dropForeign('examinador_id');
-               $table->dropForeign('grado_id');
+               $table->dropForeign(['alumno_id']);
+               $table->dropForeign(['examinador_id']);
+               $table->dropForeign(['grado_id']);
        });
        Schema::dropIfExists($this->set_schema_table);
      }

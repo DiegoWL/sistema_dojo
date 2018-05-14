@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Alumno;
+use App\Clase;
+use App\AlumnoClase;
 use Carbon\Carbon;
 class AlumnoController extends Controller
 {
@@ -16,7 +18,6 @@ class AlumnoController extends Controller
     {
         //
         $alumnos = Alumno::all();
-
         return view('alumno.ver_alumnos' , compact('alumnos'));
     }
 
@@ -26,8 +27,9 @@ class AlumnoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('alumno.create');
+    {   
+        $clases = Clase::all();
+        return view('alumno.create', compact('clases'));
     }
 
     /**
@@ -51,6 +53,7 @@ class AlumnoController extends Controller
         'observacion' => 'required',
       ]);
        $alumno = new Alumno;
+       $alumno_clase = new AlumnoClase;
        $alumno->rut = $request->get('rut');
        $alumno->nombre = $request->get('nombre');
        $alumno->apellido = $request->get('apellido');
@@ -65,6 +68,9 @@ class AlumnoController extends Controller
        $alumno->fecha_ingreso = Carbon::createFromFormat('d/m/Y' , $request->get('fecha_ingreso'));
        $alumno->observacion = $request->get('observacion');
        $alumno->save();
+       $alumno_clase->alumno_id = $alumno->id;
+       $alumno_clase->clase_id = $request->get('clase');
+       $alumno_clase->save();
        return back()->with('flash', 'Alumno Guardado');
     }
 
@@ -85,9 +91,9 @@ class AlumnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Alumno $alumno)
     {
-      $alumno = Alumno::find($id);
+     // $alumno = Alumno::find($id);
        return response()->json([
            'view' => view('alumno.edit',['alumno' => $alumno])->render(),
        ]);
@@ -131,6 +137,6 @@ class AlumnoController extends Controller
     {
           $alumnos = Alumno::where('id',$id)->delete();
           $mensaje = "Alumno Borrado";
-          return json_encode($mensaje);
+          return response()->json(['msg' => 'Alumno Borrado'], 200);
     }
 }

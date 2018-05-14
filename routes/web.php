@@ -18,8 +18,10 @@ Route::group(['prefix' => 'admin' ,
     Route::get('dashboard', 'HomeController@index')->name('admin.dashboard');
     Route::resource('alumno' , 'AlumnoController')->names([
       'index' => 'alumno.index'
-      ]);
+    ]);
     Route::resource('competidor' , 'CompetidorController');
+    Route::resource('pagos' , 'PagoController');
+
 
 
 });

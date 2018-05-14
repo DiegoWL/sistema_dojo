@@ -21,7 +21,7 @@
         <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Alumnos</span></a>
         <ul class="menu-dropdown">
           <li><a href="{{route('alumno.index')}}"><i class="ion ion-ios-circle-outline"></i> Ver Alumnos</a></li>
-          <li><a href="{{route('alumno.create')}}"><i class="ion ion-ios-circle-outline"></i>Registrar alumno</a></li>
+          <li><a href="{{route('alumno.create')}}"><i class="ion ion-ios-circle-outline"></i> Registrar alumno</a></li>
 
         </ul>
       </li>
@@ -41,8 +41,8 @@
       <li>
         <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>Pagos</span></a>
         <ul class="menu-dropdown">
-          <li><a href="{{route('competidor.index')}}"><i class="ion ion-ios-circle-outline"></i>Pagos Relizados</a></li>
-          <li><a href="login.html"><i class="ion ion-ios-circle-outline"></i>Registrar Pago</a></li>
+          <li><a href="{{route('pagos.index')}}"><i class="ion ion-ios-circle-outline"></i>Pagos Relizados</a></li>
+          <li><a href="{{route('pagos.create')}}"><i class="ion ion-ios-circle-outline"></i>Registrar Pago</a></li>
         </ul>
       </li>
   </aside>

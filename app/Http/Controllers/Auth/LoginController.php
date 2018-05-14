@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /*
@@ -32,8 +32,12 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct( $guard = null)
     {
+        if (Auth::guard($guard)->check()) {
+            return redirect('admin/dashboard');
+        }
+
         $this->middleware('guest')->except('logout');
     }
 }
