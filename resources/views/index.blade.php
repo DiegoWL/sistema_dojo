@@ -21,6 +21,7 @@
   {{-- <link rel="stylesheet" href="/dist/modules/summernote/summernote-lite.css">
   <link rel="stylesheet" href="/dist/modules/flag-icon-css/css/flag-icon.min.css"> --}}
   <link href="/components/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/components/toastr/toastr.css">
   <!-- <link rel="stylesheet" href="../dist/css/demo.css"> -->
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/red.css">
@@ -61,15 +62,16 @@
      <script src="/components/jquery/dist/jquery.min.js"></script>
      <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="/components/popper.js/dist/umd/popper.min.js"></script>
-     <script type="text/javascript" src="/components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
      <script src="/components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <script type="text/javascript" src="/components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
      <script src="/components/datatables.net/js/jquery.dataTables.js"></script>
      @stack('scripts')
-     
      <script type="text/javascript" src="/js/scripts.js"></script>
-     <script src="/js/sa-functions.js"></script>
-     <script type="text/javascript" src="/js/custom.js"></script>
+     <script src="/components/scroll-up-bar/dist/scroll-up-bar.js"></script>
+      <script src="/components/toastr/toastr.js"></script>
+     <script src="/js/sa-functions.js"></script>     
      <script src="/components/font-awesome/svg-with-js/js/fontawesome-all.min.js"></script>
+     <script type="text/javascript" src="/js/custom.js"></script>
 
 </body>
 

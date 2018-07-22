@@ -27,7 +27,8 @@
               </div>
               <div class="form-group {{ $errors->has('sexo') ? 'has-error' : ''}}" >
                 <label for="exampleFormControlInput3">Sexo</label>
-                <select class="custom-select" name="sexo">                
+                <select class="custom-select" id="sexo" name="sexo">  
+                  <option value="">Seleccione</option>              
                   <option value="F">Femenino</option>
                   <option value="M">Masculino</option>
                 </select>
@@ -75,6 +76,7 @@
               </div>
               <div class="form-group {{ $errors->has('clases') ? 'has-error' : ''}}" >
                 <select class="custom-select"  name="clase" id="clases">
+                 <option value="">Seleccione</option>
                  @foreach ($clases as $c)
                   <option value="{{$c->id}}">{{ $c->nombre }} {{ $c->horario }}</option>
                   @endforeach
@@ -99,23 +101,8 @@
   @push('scripts')
     <script src="/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="/components/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js"></script>
-    <script src="/components/jquery.rut/jquery.rut.js"></script>
-     <script type="text/javascript">
-         $(document).ready(function() {
-           $('.sandbox-container input').datepicker({
-             format: "dd/mm/yyyy",
-             todayBtn: "linked",
-             todayHighlight: true,
-             language: "es",
-             autoclose: true
-           });
-
-             $("input#rut").rut({
-            	  formatOn: 'keyup',
-            	  validateOn: 'change' // si no se quiere validar, pasar null
-            });
-         });
-     </script>
+     <script src="/components/jquery.rut/jquery.rut.js"></script>
+    <script src="/js/alumno.js"></script>
   @endpush
 
 @stop
