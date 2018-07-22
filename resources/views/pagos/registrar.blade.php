@@ -26,7 +26,11 @@
                 <input type="text" name="fecha_pago" id="fecha_pago" class="form-control">
                    {!! $errors->first('fecha_pago' ,'<span class="text-danger">:message</span>' ) !!}
               </div>
-      
+                   <div class="form-group " id="sandbox-container">
+                <label for="exampleFormControlInput1">Valor</label>
+                <input type="text" name="valor" id="valor" class="form-control">
+                   {!! $errors->first('valor' ,'<span class="text-danger">:message</span>' ) !!}
+              </div>
               <fieldset class="form-group">
                 <label for="exampleSelect1">Estado</label>
                 <select class="custom-select" name="estado" id="exampleSelect1">
@@ -39,10 +43,11 @@
                 <select class="custom-select" name="evento" id="concepto">
                   <option value=""> Eliga una opción</option>
                    @foreach($evento as $e)
-                      <option value="{{ $e->id }}">{{$e->nombre}} 
+                      <option value="{{ $e->id }}">{{$e->nombre}}
                         @if( $e->nombre == 'Mensualidad')
                           {{ \Jenssegers\Date\Date::now()->format('F')}} 
                         @endif
+                        / {{  $e->precio }}
                       </option>
                   @endforeach 
                 </select>
